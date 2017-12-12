@@ -19,6 +19,7 @@ class CommandsController < ApplicationController
 
   def contents(quote)
     {
+      "response_type": "in_channel",
       "attachments": [
         {
             "title": quote.contents,
