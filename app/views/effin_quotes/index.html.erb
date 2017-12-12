@@ -1,0 +1,8 @@
+<h1>Effin Quotes</h1>
+<ul>
+  <% @quotes.each do |quote| %>
+    <li>
+      <%= link_to quote.contents, quote %>
+    </li>
+  <% end %>
+</ul>

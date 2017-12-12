@@ -1,0 +1,2 @@
+module EffinQuotesHelper
+end
