@@ -1,1 +1,1 @@
-json.extract! @quote, :id, :contents, :url
+json.extract! @quote, :id, :contents, :url, :twitter_url

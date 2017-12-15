@@ -1,8 +1,23 @@
 <h1>Effin Quotes</h1>
-<ul>
+
+<table class="table table-striped">
+  <tbody>
+    
   <% @quotes.each do |quote| %>
-    <li>
-      <%= link_to quote.contents, quote %>
-    </li>
+    <tr>
+      <td>
+        <%= link_to quote.id, quote %>
+      </td>
+      <td>
+        <%= quote.contents %>
+      </td>
+      <td>
+        <%= quote.url %>
+      </td>
+      <td>
+        <%= quote.twitter_url %>
+      </td>
+    </tr>
   <% end %>
-</ul>
+  </tbody>  
+</table>

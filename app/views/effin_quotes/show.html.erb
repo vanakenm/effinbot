@@ -1,7 +1,24 @@
 <h1>Effin Quote</h1>
 
-<%= image_tag(@quote.url) %>
+<p><%= @count %> incomplete quotes</p>
+  
+<p>
+  URL:
+  <%= @quote.twitter_url %>
+</p>
 
 <p>
   <%= @quote.contents %>
 </p>
+
+<%= form_for(@quote) do |f| %>
+  <%= f.text_field :contents %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Destroy", @quote, method: :delete, class: "btn btn-danger" %>
+
+<p>
+<%= image_tag(@quote.url) %>
+</p>
+

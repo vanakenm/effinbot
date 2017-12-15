@@ -12,6 +12,10 @@ gem 'pg', '~> 0.18'
 gem 'pg_search'
 
 gem 'httparty'
+gem 'figaro'
+gem 'twitter'
+gem 'bootstrap-sass', '~> 3.3.7'
+gem 'jquery-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

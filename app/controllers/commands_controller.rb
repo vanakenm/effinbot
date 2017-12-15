@@ -23,7 +23,7 @@ class CommandsController < ApplicationController
       "attachments": [
         {
             "title": quote.contents,
-            "title_link": quote.url,
+            "title_link": quote.twitter_url,
             "image_url": quote.url
         }
       ]
