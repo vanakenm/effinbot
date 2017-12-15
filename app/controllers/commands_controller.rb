@@ -5,7 +5,7 @@ class CommandsController < ApplicationController
   def create
     params = command_params.to_h
 
-    quote = EffinQuote.find_by_word(command_params[:text])
+    quote = EffinQuote.find_by_word(command_params[:text]) || EffinQuote.complete.sample
 
     message = contents(quote)
 
