@@ -11,6 +11,9 @@ gem 'rails', '~> 5.1.3'
 gem 'pg', '~> 0.18'
 gem 'pg_search'
 
+gem 'omniauth'
+gem 'omniauth-slack'
+
 gem 'httparty'
 gem 'figaro'
 gem 'twitter'
