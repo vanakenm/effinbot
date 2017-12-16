@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "effin_quotes#index"
+  root to: "effin_quotes#home"
   
   get 'commands/create'
   get    '/authorize', to: 'oauth#authorize'                                       

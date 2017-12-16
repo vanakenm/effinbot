@@ -3,6 +3,9 @@ class EffinQuotesController < ApplicationController
     @quotes = EffinQuote.all
   end
 
+  def home
+  end
+
   def check
     @quote = EffinQuote.incomplete.first
     @count = EffinQuote.incomplete.count
