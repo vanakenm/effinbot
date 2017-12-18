@@ -9,7 +9,7 @@ class OauthController < ApplicationController
       options                                                                     
     )                                                                             
     params = {                                                                    
-      scope: 'incoming-webhook,commands',                                        
+      scope: 'commands',                                        
       redirect_uri: 'https://www.effinbot.com/oauth/callback'                       
     }                                                                             
     redirect_to client.auth_code.authorize_url(params)                            

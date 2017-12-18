@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: "effin_quotes#home"
   
-  get 'commands/create'
+  get    'commands/create'
   get    '/authorize', to: 'oauth#authorize'                                       
   get    '/oauth/callback', to: 'oauth#authorize_callback'  
 
