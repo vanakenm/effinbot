@@ -16,7 +16,10 @@ class OauthController < ApplicationController
   end                                                                             
 
   def authorize_callback                                                          
-    puts params["code"] 
+    code = params["code"] 
+    puts code
+    response = HTTParty.get("https://slack.com/api/oauth.access?code=#{code}&client_id=12060783617.285877762837&client_secret=#{ENV['SLACK_CLIENT_SECRET']}")
+    puts response
     redirect_to root_url                                                              
   end 
 end
