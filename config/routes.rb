@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get    'commands/create'
   get    '/authorize', to: 'oauth#authorize'                                       
   get    '/oauth/callback', to: 'oauth#authorize_callback'  
+  get    '/success', to: 'oauth#success'
+  get    '/error', to: 'oauth#error'
 
   resources :effin_quotes, only: [:index, :show, :destroy, :update] do
     collection do
