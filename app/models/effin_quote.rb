@@ -6,6 +6,17 @@ class EffinQuote < ApplicationRecord
     url && twitter_url && contents
   end
 
+  def autocomplete
+    require "google/cloud/vision"
+    vision = Google::Cloud::Vision.new(project_id: "effin-bot")
+    image = vision.image(url)
+    text = image.text.to_s
+    text = text.gsub("\n", " ").downcase
+
+    self.contents = text
+    save
+  end
+
   def self.complete
     where("url is not null and twitter_url is not null and contents is not null")
   end

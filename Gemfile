@@ -11,6 +11,8 @@ gem 'rails', '~> 5.1.3'
 gem 'pg', '~> 0.18'
 gem 'pg_search'
 
+gem 'google-cloud-vision'
+
 gem 'omniauth'
 gem 'omniauth-slack'
 
