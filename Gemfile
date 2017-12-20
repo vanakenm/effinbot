@@ -14,6 +14,7 @@ gem 'pg_search'
 gem 'omniauth'
 gem 'omniauth-slack'
 
+gem 'devise'
 gem 'httparty'
 gem 'figaro'
 gem 'twitter'
