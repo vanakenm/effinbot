@@ -1,4 +1,6 @@
 class EffinQuotesController < ApplicationController
+  before_action :authenticate_user!, except: :home
+
   def index
     @quotes = EffinQuote.all
   end
