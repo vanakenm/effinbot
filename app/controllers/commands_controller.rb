@@ -18,7 +18,7 @@ class CommandsController < ApplicationController
     EffinLog.create(
       effin_quote: quote, 
       random: random, 
-      team_doman: params[:team_domain], 
+      team_doman: commands_params[:team_domain], 
       text: command_params[:text]
     )
 
@@ -47,7 +47,7 @@ class CommandsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def command_params
-      params.permit(:text, :token, :user_id, :response_url)
+      params.permit(:text, :token, :user_id, :response_url, :team_domain)
     end
 
 end
