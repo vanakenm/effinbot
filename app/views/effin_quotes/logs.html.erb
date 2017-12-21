@@ -1,0 +1,24 @@
+<h1>Effin Logs</h1>
+
+<h3><%= @logs.count %> quotes generated for <%= @logs.pluck(:team_doman).uniq.size %></h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>text</th>
+      <th>team</th>
+      <th>quote</th>
+      <th>random</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @logs.each do |log| %>
+      <tr>
+        <td><%= log.text %></td>
+        <td><%= log.team_doman %></td>
+        <td><%= link_to log.effin_quote.text, log.effin_quote %></td>
+        <td><%= log.random %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

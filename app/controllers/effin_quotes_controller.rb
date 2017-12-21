@@ -5,6 +5,10 @@ class EffinQuotesController < ApplicationController
     @quotes = EffinQuote.all
   end
 
+  def logs
+    @logs = EffinLog.all
+  end
+
   def home
   end
 

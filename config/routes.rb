@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get :find
       get :incomplete
       get :check
+      get :logs
     end
   end
 
