@@ -5,9 +5,22 @@ class CommandsController < ApplicationController
   def create
     params = command_params.to_h
 
-    quote = EffinQuote.find_by_word(command_params[:text]) || EffinQuote.complete.sample
+    quote = EffinQuote.find_by_word(command_params[:text])
+    random = false
+
+    unless quote
+      quote = EffinQuote.complete.sample
+      random = true
+    end
 
     message = contents(quote)
+
+    EffinLog.create(
+      effin_quote: quote, 
+      random: random, 
+      team_domain: params[:team_domain], 
+      text: command_params[:text]
+    )
 
     HTTParty.post(params[:response_url], { body: message.to_json, headers: {
         "Content-Type" => "application/json"
