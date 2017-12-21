@@ -18,7 +18,7 @@ class CommandsController < ApplicationController
     EffinLog.create(
       effin_quote: quote, 
       random: random, 
-      team_doman: commands_params[:team_domain], 
+      team_doman: command_params[:team_domain], 
       text: command_params[:text]
     )
 
