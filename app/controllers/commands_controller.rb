@@ -18,7 +18,7 @@ class CommandsController < ApplicationController
     EffinLog.create(
       effin_quote: quote, 
       random: random, 
-      team_doman: Digest::SHA256.Digest(command_params[:team_domain]), 
+      team_doman: Digest::SHA256.digest(command_params[:team_domain]), 
       text: command_params[:text]
     )
 
