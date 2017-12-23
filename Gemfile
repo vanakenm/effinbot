@@ -20,6 +20,7 @@ gem 'figaro'
 gem 'twitter'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
+gem 'bcrypt'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'

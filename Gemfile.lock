@@ -256,6 +256,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bootstrap-sass (~> 3.3.7)
   byebug
   capybara (~> 2.13)

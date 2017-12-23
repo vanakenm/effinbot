@@ -18,7 +18,7 @@ class CommandsController < ApplicationController
     EffinLog.create(
       effin_quote: quote, 
       random: random, 
-      team_doman: command_params[:team_domain], 
+      team_doman: BCrypt::Password.create(command_params[:team_domain]).to_s, 
       text: command_params[:text]
     )
 
