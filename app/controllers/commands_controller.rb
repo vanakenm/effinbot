@@ -3,11 +3,7 @@ class CommandsController < ApplicationController
   protect_from_forgery except: [:create]
 
   def create
-    params = command_params.to_h
-
     quote,random = find_or_random(command_params[:text])
-
-    message = contents(quote)
 
     EffinLog.create(
       effin_quote: quote, 
@@ -16,7 +12,7 @@ class CommandsController < ApplicationController
       text: command_params[:text]
     )
 
-    HTTParty.post(params[:response_url], { body: message.to_json, headers: {
+    HTTParty.post(command_params[:response_url], { body: contents(quote).to_json, headers: {
         "Content-Type" => "application/json"
       }
     })
@@ -24,9 +20,7 @@ class CommandsController < ApplicationController
     render json: { response_type: "in_channel" }, status: :created
   end
 
-
   private
-
     
     def contents(quote)
       {
@@ -45,5 +39,4 @@ class CommandsController < ApplicationController
     def command_params
       params.permit(:text, :token, :user_id, :response_url, :team_domain)
     end
-
 end

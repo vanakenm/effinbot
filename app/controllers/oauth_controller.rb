@@ -4,7 +4,7 @@ class OauthController < ApplicationController
       site: 'https://slack.com/oauth/authorize'
     }
     client ||= OAuth2::Client.new(
-      '12060783617.285877762837',
+      ENV('SLACK_CLIENT_ID'),
       ENV('SLACK_CLIENT_SECRET'),
       options
     )
@@ -21,7 +21,7 @@ class OauthController < ApplicationController
 
   def authorize_callback
     code = params['code']
-    response = HTTParty.get("https://slack.com/api/oauth.access?code=#{code}&client_id=12060783617.285877762837&client_secret=#{ENV['SLACK_CLIENT_SECRET']}")
+    response = HTTParty.get("https://slack.com/api/oauth.access?code=#{code}&client_id=#{ENV('SLACK_CLIENT_ID')}&client_secret=#{ENV['SLACK_CLIENT_SECRET']}")
 
     if response['ok'] && response['ok'] == true
       redirect_to '/success'
