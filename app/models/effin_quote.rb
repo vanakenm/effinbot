@@ -9,12 +9,17 @@ class EffinQuote < ApplicationRecord
   def self.complete
     where('url is not null and twitter_url is not null and contents is not null')
   end
-
+  
   def self.incomplete
     where('url is null or twitter_url is null or contents is null')
   end
 
   def self.find_by_word(word)
     complete.search_by_word(word).first
+  end
+
+  def self.find_or_random(text)
+    quote = EffinQuote.find_by_word(text)
+    quote ? [quote, false] : [EffinQuote.complete.sample, true]
   end
 end

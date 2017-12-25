@@ -5,13 +5,7 @@ class CommandsController < ApplicationController
   def create
     params = command_params.to_h
 
-    quote = EffinQuote.find_by_word(command_params[:text])
-    random = false
-
-    unless quote
-      quote = EffinQuote.complete.sample
-      random = true
-    end
+    quote,random = find_or_random(command_params[:text])
 
     message = contents(quote)
 
@@ -30,20 +24,22 @@ class CommandsController < ApplicationController
     render json: { response_type: "in_channel" }, status: :created
   end
 
-  def contents(quote)
-    {
-      "response_type": "in_channel",
-      "attachments": [
-        {
-            "title": quote.contents,
-            "title_link": quote.twitter_url,
-            "image_url": quote.url
-        }
-      ]
-    }
-  end
 
   private
+
+    
+    def contents(quote)
+      {
+        "response_type": "in_channel",
+        "attachments": [
+          {
+              "title": quote.contents,
+              "title_link": quote.twitter_url,
+              "image_url": quote.url
+          }
+        ]
+      }
+    end
 
     # Only allow a trusted parameter "white list" through.
     def command_params
