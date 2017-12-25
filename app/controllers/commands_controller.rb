@@ -3,7 +3,7 @@ class CommandsController < ApplicationController
   protect_from_forgery except: [:create]
 
   def create
-    quote,random = find_or_random(command_params[:text])
+    quote,random = EffinQuote.find_or_random(command_params[:text])
 
     EffinLog.create(
       effin_quote: quote, 
