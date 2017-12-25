@@ -9,8 +9,7 @@ class EffinQuotesController < ApplicationController
     @logs = EffinLog.all
   end
 
-  def home
-  end
+  def home; end
 
   def check
     @quote = EffinQuote.incomplete.first
@@ -49,6 +48,6 @@ class EffinQuotesController < ApplicationController
   end
 
   def quote_params
-      params.require(:effin_quote).permit(:contents)
+    params.require(:effin_quote).permit(:contents)
     end
 end

@@ -14,7 +14,7 @@
 #   {
 #     contents: "got it you're dim",
 #     url: "https://pbs.twimg.com/media/DQ117aPW4AEmnWF.jpg"
-#   }, 
+#   },
 #   {
 #     contents: "where is your fucking brain",
 #     url: "https://pbs.twimg.com/media/DQxjO2fWsAEFIMd.jpg"
