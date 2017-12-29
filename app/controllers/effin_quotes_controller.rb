@@ -6,7 +6,7 @@ class EffinQuotesController < ApplicationController
   end
 
   def logs
-    @logs = EffinLog.all
+    @logs = EffinLog.order(created_at: :desc)
   end
 
   def home; end

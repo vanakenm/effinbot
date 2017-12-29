@@ -9,6 +9,7 @@
       <th>team</th>
       <th>quote</th>
       <th>random</th>
+      <th>date</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
         <td><%= log.team_doman %></td>
         <td><%= link_to log.effin_quote.contents, log.effin_quote %></td>
         <td><%= log.random %></td>
+        <td><%= time_ago_in_words(log.created_at) %> ago</td>
       </tr>
     <% end %>
   </tbody>

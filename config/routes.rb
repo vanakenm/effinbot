@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'effin_quotes#home'
 
-  get    'commands/create'
   get    '/authorize', to: 'oauth#authorize'
   get    '/oauth/callback', to: 'oauth#authorize_callback'
   get    '/success', to: 'oauth#success'

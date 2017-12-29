@@ -1,5 +1,5 @@
 client = Twitter::REST::Client.new do |config|
-  config.consumer_key = ENV('TWITTER_CONSUMER_KEY')
+  config.consumer_key        = ENV('TWITTER_CONSUMER_KEY')
   config.consumer_secret     = ENV('TWITTER_CONSUMER_SECRET')
   config.access_token        = ENV('TWITTER_ACCESS_TOKEN')
   config.access_token_secret = ENV('TWITTER_ACCESS_TOKEN_SECRET')
@@ -8,18 +8,14 @@ end
 tweets = client.get_all_tweets('effinbirds')
 
 # Let's find the tweets that contains an image
-raw = tweets.map do |t|
+tweets.each do |t|
   next unless t.media && t.media.first && t.media.first.uri
   image_url = t.media.first.media_uri
   tweet_url = t.uri
 
-  [image_url, tweet_url]
-end.compact
-
-raw.each do |r|
-  next if EffinQuote.find_by(url: r.first.to_s)
-
-  EffinQuote.create(url: r.first.to_s, twitter_url: r.second.to_s)
+  next if EffinQuote.find_by(url: image_url.to_s)
+  
+  EffinQuote.create(url: image_url.to_s, twitter_url: tweet_url.to_s)
 end
 
 # From Twitter gem example of getting all tweets for a given account
