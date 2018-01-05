@@ -6,4 +6,6 @@ Source for the bot running at [Effin Bot](https://www.effinbot.com) - a Slack Bo
 
 This is done using Rails and OAuth. It contains a barebone working OAuth & CommandsControlle which may be used for other Rails based bots.
 
-God willing, I'll make a blog post documenting the experience in the coming days - until then do whatever you want with it.
+~~God willing, I'll make a blog post documenting the experience in the coming days - until then do whatever you want with it.~~
+
+I did - check my blog post on [Medium](https://medium.com/@martinvanaken/building-an-effin-slack-bot-e49645872246)
