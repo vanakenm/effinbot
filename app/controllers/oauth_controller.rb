@@ -4,8 +4,8 @@ class OauthController < ApplicationController
       site: 'https://slack.com/oauth/authorize'
     }
     client ||= OAuth2::Client.new(
-      ENV('SLACK_CLIENT_ID'),
-      ENV('SLACK_CLIENT_SECRET'),
+      ENV['SLACK_CLIENT_ID'],
+      ENV['SLACK_CLIENT_SECRET'],
       options
     )
     params = {
