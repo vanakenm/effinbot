@@ -6,6 +6,21 @@ class EffinQuote < ApplicationRecord
     complete.search_by_word(word).first
   end
 
+  def self.words
+    words = Hash.new(0)
+    complete.each do |quote|
+      quote.words.each do |word|
+        words[word.downcase] += 1
+      end
+    end
+
+    words
+  end
+
+  def words
+    contents.split(" ")
+  end
+
   def self.find_or_random(text)
     quote = EffinQuote.find_by_word(text)
     quote ? [quote, false] : [EffinQuote.complete.sample, true]
