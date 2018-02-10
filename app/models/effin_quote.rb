@@ -17,6 +17,10 @@ class EffinQuote < ApplicationRecord
     words
   end
 
+  def self.everywords
+    complete.map(&:words).flatten
+  end
+
   def words
     contents.split(" ")
   end

@@ -1,5 +1,5 @@
 class EffinQuotesController < ApplicationController
-  before_action :authenticate_user!, except: :home
+  before_action :authenticate_user!, except: [:home, :status]
 
   def index
     @quotes = EffinQuote.all
@@ -21,6 +21,10 @@ class EffinQuotesController < ApplicationController
   def show
     @quote = EffinQuote.find(params[:id])
     @count = EffinQuote.incomplete.count
+  end
+
+  def status
+    @last_quotes = EffinLog.where(random: false).order(created_at: :desc).limit(12)
   end
 
   def incomplete
@@ -49,5 +53,5 @@ class EffinQuotesController < ApplicationController
 
   def quote_params
     params.require(:effin_quote).permit(:contents)
-    end
+  end
 end
