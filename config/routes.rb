@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'effin_quotes#home'
 
   get '/status', to: 'effin_quotes#status'
+  get '/support', to: 'effin_quotes#support'
+  get '/privacy', to: 'effin_quotes#privacy'
 
   get    '/authorize', to: 'oauth#authorize'
   get    '/oauth/callback', to: 'oauth#authorize_callback'
