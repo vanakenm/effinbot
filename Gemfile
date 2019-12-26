@@ -15,7 +15,7 @@ gem 'omniauth'
 gem 'omniauth-slack'
 
 gem 'bcrypt'
-gem 'bootstrap-sass', '~> 3.3.7'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'devise'
 gem 'httparty'
 gem 'jquery-rails'
