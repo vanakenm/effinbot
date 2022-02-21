@@ -1,4 +1,4 @@
-ruby ">=2.7"
+ruby "2.7.0p0"
 
 source 'https://rubygems.org'
 
